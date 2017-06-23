@@ -1,10 +1,13 @@
-import xml.etree.ElementTree
+from lxml import etree
 
-def parsexml(Field):
-    values = []
-    parsed = xml.etree.ElementTree.parse('../tests/config.xml').getroot()
-    for fieldvalues in parsed.findall(Field):
-        print(fieldvalues)
+
+def parse_xml_by_field(Field):
+    fields = []
+    tree = etree.parse('config.xml')
+    values = tree.xpath('//' + Field)
+    for element in values:
+        fields.append(element.get("name"))
+    return fields
 
 if __name__ == '__main__':
-    parsexml("subreddits")
+    print(parse_xml_by_field("subreddit"))
