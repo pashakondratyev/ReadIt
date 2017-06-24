@@ -1,3 +1,6 @@
+import calendar
+import time
+
 import requests
 
 import readit.ParseXML as px
@@ -11,7 +14,7 @@ def get_page(url):
 
 def get_new_five_posts(subreddit):
     url = "http://www.reddit.com/r/" + subreddit + "/new.json?count=5"
-    print(get_page(url))
+    return get_page(url)
 
 
 def get_subreddits():
@@ -22,4 +25,5 @@ def get_subreddits():
 
 if __name__ == '__main__':
     print("Main")
+    print(calendar.timegm(time.gmtime()))
     get_subreddits()

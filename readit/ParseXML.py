@@ -1,10 +1,10 @@
 from lxml import etree
 
 
-def parse_xml_by_field(Field):
+def parse_xml_by_field(field):
     fields = []
     tree = etree.parse('config.xml')
-    values = tree.xpath('//' + Field)
+    values = tree.xpath('//' + field)
     for element in values:
         fields.append(element.get("name"))
     return fields
