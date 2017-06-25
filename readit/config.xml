@@ -4,6 +4,7 @@
         <subreddit name="rangers" all="true" />
         <subreddit name="hockey" all="true" />
         <subreddit name="synthesizers" />
+        <subreddit name="worldnews" />
     </subreddits>
     <!-- Put keywords here, and if they apply to a single subreddit, several, or all-->
     <keywords>
