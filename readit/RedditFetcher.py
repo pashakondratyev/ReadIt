@@ -12,15 +12,17 @@ def get_page(url):
     return str(page.text)
 
 
-def get_new_five_posts(subreddit):
-    url = "http://www.reddit.com/r/" + subreddit + "/new.json?count=5"
+def get_new_posts(subreddit):
+    url = "http://www.reddit.com/r/" + subreddit + "/new.json"
     return get_page(url)
 
 
 def get_subreddits():
     subreddits = px.parse_xml_by_field("subreddit")
+    return_array = []
     for item in subreddits:
-        get_new_five_posts(str(item))
+        return_array.append(get_new_posts(str(item)))
+    return return_array
 
 
 if __name__ == '__main__':

@@ -2,12 +2,19 @@
 Customizable Notification System for Reddit
 
 ##Setup
+
 ###Config.xml
+In the config.xml file, in between the two "Subreddits" tags
+put the subreddit you wish to monitor by adding a new tag like: 
+```xml
+<subreddit name="your_subreddit" />
+```
+and filing your_subreddit in properly.
+
 ##Todo
-1. Replace requests with long polling 
-2. Parse JSON returned
-3. Introduce Twillo
-4. Introduce Growl/Similar tech
-5. Write the server code
-6. Write README
-7. Prioritize TODO Properly
+1. Introduce Twillo
+2. Introduce Growl/Similar tech
+3. Write README
+4. Add more filters
+
+
