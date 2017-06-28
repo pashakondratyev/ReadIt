@@ -12,9 +12,9 @@ put the subreddit you wish to monitor by adding a new tag like:
 and filing your_subreddit in properly.
 
 ## Todo
-1. Introduce Twillo
-2. Introduce Growl/Similar tech
-3. Write README
-4. Add more filters
+* Write README
+* Add more filters
+* Fix redundant reading of config.xml
+* First read from config pre for loop then process in the forloop to get the new posts
 
 

@@ -1,6 +1,13 @@
 import json
 
 
+class Subreddit:
+
+    def __init__(self, name, last_post):
+        self.name = name
+        self.last_post = last_post
+
+
 class RedditPost:
 
     # Takes the reddit post as JSON, and parses relevant information

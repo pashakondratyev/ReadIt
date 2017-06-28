@@ -14,7 +14,10 @@ def check_title(post):
 def check_source(post):
     return False
 
+def check_id(post, id):
+    if id == post.id:
+        return True
 
-def check_post(post, time_after):
+def check_post(post, time_after, id):
     return (check_contents(post) or check_time(post, time_after) or
-            check_title(post) or check_source(post))
+            check_title(post) or check_source(post) or check_id(post, id))
