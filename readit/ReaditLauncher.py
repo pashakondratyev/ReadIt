@@ -1,16 +1,17 @@
 import calendar
 import time
 
+import readit.NotificationDrivers as NotificationDrivers
 import readit.RedditFetcher as RedditFetcher
 import readit.RedditPost as RedditPost
 import readit.RedditProcessor as RedditProcessor
 
 
 def report(post):
-    # TODO: Substitute with whatever service user chooses
     print("Alert! There has been a new post of interest")
     print(post.created_utc)
     print(post.title)
+    NotificationDrivers.new_pushover_message(post.title)
 
 
 def process(reddit_result, time_after):
