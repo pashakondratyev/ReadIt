@@ -3,8 +3,6 @@ import time
 
 import requests
 
-import readit.ParseXML as px
-
 
 def get_page(url):
     # Having the User-Agent in the request prevents an overload
@@ -17,10 +15,9 @@ def get_new_posts(subreddit):
     return get_page(url)
 
 
-def get_subreddits():
-    subreddits = px.parse_xml_by_field("subreddit")
+def get_new_posts_multi(subreddit_array):
     return_array = []
-    for item in subreddits:
+    for item in subreddit_array:
         return_array.append(get_new_posts(str(item)))
     return return_array
 
@@ -28,4 +25,4 @@ def get_subreddits():
 if __name__ == '__main__':
     print("Main")
     print(calendar.timegm(time.gmtime()))
-    get_subreddits()
+    #get_subreddits()
