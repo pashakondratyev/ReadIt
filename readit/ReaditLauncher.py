@@ -1,4 +1,3 @@
-import calendar
 import time
 
 import readit.NotificationDrivers as NotificationDrivers
@@ -8,6 +7,20 @@ import readit.RedditPost as RedditPost
 import readit.RedditProcessor as RedditProcessor
 
 
+def process(subreddits, last_reddit_post_id):
+    reddit_result = RedditFetcher.get_new_posts_multi(subreddits)
+    for subreddit in reddit_result:
+        data = RedditPost.group_of_posts(subreddit)
+        for post in data:
+            if int(post.id, 36) > last_reddit_post_id:
+                last_reddit_post_id = int(post.id, 36)
+            if RedditProcessor.check_post(post, last_reddit_post_id):
+                report(post)
+            else:
+                break
+    return last_reddit_post_id
+
+
 def report(post):
     print("Alert! There has been a new post of interest")
     print(post.created_utc)
@@ -15,24 +28,11 @@ def report(post):
     NotificationDrivers.new_pushover_message(post.title)
 
 
-def process(reddit_result, time_after):
-    for subreddit in reddit_result:
-        data = RedditPost.group_of_posts(subreddit)
-        for post in data:
-            if RedditProcessor.check_post(post, time_after, id):
-                report(post)
-            else:
-                break
-
-
 def long_poll():
-    time_after = calendar.timegm(time.gmtime())
     subreddits = ParseXML.get_subreddits()
+    last_reddit_post_id = process(subreddits, 0)
     while True:
-        result = RedditFetcher.get_new_posts_multi(subreddits)
-        _temp = calendar.timegm(time.gmtime())
-        process(result, time_after)
-        time_after = _temp
+        process(subreddits, last_reddit_post_id)
         time.sleep(.5)  # Sleeps .5 seconds between polls
 
 

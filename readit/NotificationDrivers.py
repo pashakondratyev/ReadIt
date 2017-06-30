@@ -15,4 +15,4 @@ def new_pushover_message(message):
 
 
 if __name__ == '__main__':
-    new_pushover_message("Test")
+    new_pushover_message("Hi mom!")
