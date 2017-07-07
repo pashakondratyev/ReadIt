@@ -3,9 +3,10 @@ import json
 
 class Subreddit:
 
-    def __init__(self, name, last_post):
+    def __init__(self, name, last_post, keywords):
         self.name = name
         self.last_post = last_post
+        self.keywords = keywords
 
 
 class RedditPost:

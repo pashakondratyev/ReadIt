@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <subreddits>
-        <subreddit name="rangers" all="true" />
+        <subreddit name="rangers">
+            <keyword name="trade"/>
+            <keyword name="lundqvist"/>
+            <keyword name="mika"/>
+            <keyword name="zibanejad"/>
+        </subreddit>
         <subreddit name="hockey" all="true" />
     </subreddits>
     <!-- Put keywords here, and if they apply to a single subreddit, several, or all-->

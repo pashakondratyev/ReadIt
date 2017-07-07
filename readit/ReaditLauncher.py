@@ -35,7 +35,7 @@ def long_poll():
     last_reddit_post_id = process(subreddits, 0)
     while True:
         last_reddit_post_id = process(subreddits, last_reddit_post_id)
-        time.sleep(2)  # Sleeps .5 seconds between polls
+        time.sleep(.5)  # Sleeps .5 seconds between polls
 
 
 if __name__ == '__main__':
